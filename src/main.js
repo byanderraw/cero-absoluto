@@ -1,3 +1,4 @@
+// main.js
 import "./style.css";
 import { fetchWeatherData } from "./api.js";
 import { SimulationEngine } from "./simulation.js";
@@ -6,15 +7,15 @@ import { SceneManager } from "./scene.js";
 import { LienzoTexturizado } from "./components/LienzoTexturizado.js";
 
 async function initApp() {
-  console.log("🚀 Iniciando Cero Absoluto (Core 3D)...");
+  console.log("🚀 Iniciando Cero Absoluto (Core 3D + Atractores)...");
 
   // 1. Instanciar Motor de Simulación y Audio
   const simulation = new SimulationEngine(300);
   const audio = new AudioManager();
 
-  // 2. Obtener Datos Climáticos
-  const data = await fetchWeatherData();
-  simulation.init(data);
+  // 2. Obtener Datos Climáticos y Atractores de la Sabana
+  const weatherAttractors = await fetchWeatherData();
+  simulation.init(weatherAttractors); // Inicia con los datos procesados
 
   // 3. Inicializar Renderizador Three.js
   const sceneManager = new SceneManager(simulation, audio);
