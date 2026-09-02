@@ -67,7 +67,15 @@ export class SceneManager {
   }
 
   initEnvironmentManager() {
-    this.environment = new EnvironmentManager(this.scene);
+    const initialRecord = this.simulation
+      ? this.simulation.getInterpolatedRecord()
+      : null;
+    // Pasar this.camera como segundo argumento
+    this.environment = new EnvironmentManager(
+      this.scene,
+      this.camera,
+      initialRecord,
+    );
   }
 
   toggleFullscreen() {
@@ -117,11 +125,11 @@ export class SceneManager {
       if (this.simulation) {
         this.simulation.update(frameCount);
         const stress = this.simulation.currentStress;
-        const record = this.simulation.getCurrentRecord();
+        const interpolatedRecord = this.simulation.getInterpolatedRecord();
 
         if (this.environment) {
           this.environment.update(
-            record,
+            interpolatedRecord,
             stress,
             frameCount,
             this.simulation.snapTriggered,
@@ -133,17 +141,17 @@ export class SceneManager {
         }
 
         if (this.bitacora) {
-          this.bitacora.update(record, stress, {
+          this.bitacora.update(interpolatedRecord, stress, {
             totalRecords: this.simulation.weatherData.length,
             currentIndex: this.simulation.currentIndex,
           });
         }
 
-        if (this.audio && record.datetime) {
+        if (this.audio && interpolatedRecord.datetime) {
           this.audio.update(
             stress,
-            record.temperature_180m,
-            record.wind_speed_180m,
+            interpolatedRecord.temperature_180m,
+            interpolatedRecord.wind_speed_180m,
             this.simulation.snapTriggered,
             this.simulation.lastSnapFrame ? 0.25 : 0.0,
           );
