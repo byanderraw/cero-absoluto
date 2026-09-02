@@ -19,8 +19,8 @@ export class BitacoraUI {
     styleElement.textContent = `
       .sim-ui-panel {
         position: absolute;
-        top: 24px;
-        left: 24px;
+        bottom: 24px;
+        right: 24px;
         width: 250px;
         background: rgba(245, 240, 235, 0.88);
         color: #1a1a1a;
