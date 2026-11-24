@@ -10,7 +10,7 @@ export const ColorPalette = {
     linoCrudo: "#EAE4D8",
   },
 
-  /* masaTectonica: {
+  masaTectonica: {
     // --- CAPA 0: BASE FRONTAL CÁLIDA (20 Colores) ---
     mtC0_01: "#210404",
     mtC0_02: "#330A07",
@@ -164,10 +164,10 @@ export const ColorPalette = {
     mtC6_18: "#ABB8B5",
     mtC6_19: "#BDCAC7",
     mtC6_20: "#CFDDCB",
-  }, */
+  },
 
   // PALETA DE DIAGNÓSTICO DE ALTO CONTRASTE (20 tonos por capa)
-  masaTectonica: {
+  /* masaTectonica: {
     // --- CAPA 0: ROJOS (Base frontal) ---
     mtC0_01: "#FF0000",
     mtC0_02: "#E60000",
@@ -321,7 +321,7 @@ export const ColorPalette = {
     mtC6_18: "#CC99CC",
     mtC6_19: "#D9B3D9",
     mtC6_20: "#E6CCE6",
-  },
+  }, */
 
   tejidoUrbano: {
     granateProfundo: "#3B0A0A",
