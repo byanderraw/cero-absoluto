@@ -20,6 +20,7 @@ export class EnvironmentManager {
       camera,
       initialRecord,
     );
+    this.tejidoUrbano = new TejidoUrbano(scene);
   }
 
   update(record, stress, frameCount, isSnap = false) {
@@ -29,5 +30,6 @@ export class EnvironmentManager {
     /* this.tejidoUrbano.update(stress, frameCount); */
     this.masaTectonica.update(record, stress, frameCount, isSnap);
     this.estratoAtmosferico.update(record, frameCount);
+    this.tejidoUrbano.update(stress, frameCount);
   }
 }
